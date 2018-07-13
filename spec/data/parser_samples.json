@@ -1,0 +1,47 @@
+[
+    {
+        "title": "simple JSON obj",
+        "sample": "{\"foo\":\"bar\"}",
+        "expected_json": {
+            "foo": "bar"
+        }
+    },
+    {
+        "title": "JSON obj with nested objects",
+        "sample": "{\"foo\":{\"bar\":\"baz\"}}",
+        "expected_json": {
+            "foo": {
+                "bar": "baz"
+            }
+        }
+    },
+    {
+        "title": "json array of string",
+        "sample": "[\"foo\"]",
+        "expected_json": [
+            "foo"
+        ]
+    },
+    {
+        "title": "json array of strings",
+        "sample": "[\"foo\",\"bar\",\"baz\"]",
+        "expected_json": [
+            "foo", "bar", "baz"
+        ]
+    },
+    {
+        "title": "json object with multiple props",
+        "sample": "{\"foo\":\"foo_value\",\"bar\":\"bar_value\"}",
+        "expected_json": {
+            "foo": "foo_value",
+            "bar": "bar_value"
+        }
+    },
+    {
+        "title": "json obj with prop that is array",
+        "sample": "{\"foo\": [\"bar\"]}",
+        "expected_json": {
+            "foo": ["bar"]
+        }
+    }
+]

@@ -1,0 +1,111 @@
+[
+    {
+        "title": "simple JSON obj",
+        "sample": "{\"foo\":\"bar\"}",
+        "tokens": [
+            {
+                "type": "OPEN_CURLY",
+                "value": "{"
+            },
+            {
+                "type": "STRING",
+                "value": "\"foo\""
+            },
+            {
+                "type": "COLON",
+                "value": ":"
+            },
+            {
+                "type": "STRING",
+                "value": "\"bar\""
+            },
+            {
+                "type": "CLOSE_CURLY",
+                "value": "}"
+            }
+        ]
+    },
+    {
+        "title": "JSON obj with nested objects",
+        "sample": "[{\"foo\":\"bar\"}]",
+        "expected_json": {
+            "foo": {
+                "bar": "baz"
+            }
+        },
+        "tokens": [
+            {
+                "type": "OPEN_BRACKET",
+                "value": "["
+            },
+            {
+                "type": "OPEN_CURLY",
+                "value": "{"
+            },
+            {
+                "type": "STRING",
+                "value": "\"foo\""
+            },
+            {
+                "type": "COLON",
+                "value": ":"
+            },
+            {
+                "type": "STRING",
+                "value": "\"bar\""
+            },
+            {
+                "type": "CLOSE_CURLY",
+                "value": "}"
+            },
+            {
+                "type": "CLOSE_BRACKET",
+                "value": "]"
+            }
+        ]
+    },
+    {
+        "title": "array of strings",
+        "sample": "[\"foo\", \"bar\"]",
+        "tokens": [
+            {
+                "type": "OPEN_BRACKET",
+                "value": "["
+            },
+            {
+                "type": "STRING",
+                "value": "\"foo\""
+            },
+            {
+                "type": "COMMA",
+                "value": ","
+            },
+            {
+                "type": "STRING",
+                "value": "\"bar\""
+            },
+            {
+                "type": "CLOSE_BRACKET",
+                "value": "]"
+            }
+        ]
+    },
+    {
+        "title": "string with _",
+        "sample": "[\"foo_value\"]",
+        "tokens": [
+            {
+                "type": "OPEN_BRACKET",
+                "value": "["
+            },
+            {
+                "type": "STRING",
+                "value": "\"foo_value\""
+            },
+            {
+                "type": "CLOSE_BRACKET",
+                "value": "]"
+            }
+        ]
+    }
+]
