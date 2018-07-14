@@ -143,5 +143,31 @@
                 "value": "]"
             }
         ]
+    },
+    {
+        "title": "boolean",
+        "sample": "[true, false]",
+        "tokens": [
+            {
+                "type": "OPEN_BRACKET",
+                "value": "["
+            },
+            {
+                "type": "BOOLEAN",
+                "value": true
+            },
+            {
+                "type": "COMMA",
+                "value": ","
+            },
+            {
+                "type": "BOOLEAN",
+                "value": false
+            },
+            {
+                "type": "CLOSE_BRACKET",
+                "value": "]"
+            }
+        ]
     }
 ]

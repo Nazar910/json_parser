@@ -12,7 +12,8 @@ const {
     COLON,
     COMMA,
     STRING,
-    NUMBER
+    NUMBER,
+    BOOLEAN
 } = Token.types;
 
 /**
@@ -106,6 +107,32 @@ class Lexer {
     }
 
     /**
+     * Read from test while get true or false
+     * and return result
+     *
+     * @returns {Boolean}
+     */
+    boolean() {
+        let expectedStr = '';
+        if (this.currentChar === 'f') {
+            expectedStr = 'false';
+        } else if (this.currentChar === 't') {
+            expectedStr = 'true';
+        } else {
+            this.error();
+        }
+
+        for (let i = 0; i < expectedStr.length; i++) {
+            if (this.currentChar !== expectedStr[i]) {
+                this.error();
+            }
+            this.advance();
+        }
+
+        return expectedStr === 'true';
+    }
+
+    /**
      * Get next token from input text
      *
      * @returns {Token}
@@ -153,6 +180,10 @@ class Lexer {
 
             if (/\"/.test(this.currentChar)) {
                 return Token.create(STRING, this.string());
+            }
+
+            if (this.currentChar === 't' || this.currentChar === 'f') {
+                return Token.create(BOOLEAN, this.boolean());
             }
 
             this.error();
