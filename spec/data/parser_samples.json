@@ -43,5 +43,19 @@
         "expected_json": {
             "foo": ["bar"]
         }
+    },
+    {
+        "title": "json obj with number prop",
+        "sample": "{\"foo\": 5}",
+        "expected_json": {
+            "foo": 5
+        }
+    },
+    {
+        "title": "json obj with floating number prop",
+        "sample": "{\"foo\": 5.245}",
+        "expected_json": {
+            "foo": 5.245
+        }
     }
 ]

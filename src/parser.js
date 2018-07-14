@@ -10,7 +10,8 @@ const {
     CLOSE_BRACKET,
     COLON,
     COMMA,
-    STRING
+    STRING,
+    NUMBER
 } = Token.types;
 
 class Parser {
@@ -79,6 +80,18 @@ class Parser {
     }
 
     /**
+     * Checks if current token type is NUMBER
+     * and return its value
+     *
+     * @returns {Number}
+     */
+    number() {
+        const num = this.currentToken.value;
+        this.eat(NUMBER);
+        return num;
+    }
+
+    /**
      * Handler for json object value
      *
      * @returns {String|Object}
@@ -86,6 +99,10 @@ class Parser {
     value() {
         if (this.currentToken.type === STRING) {
             return this.string();
+        }
+
+        if (this.currentToken.type === NUMBER) {
+            return this.number();
         }
 
         if (this.currentToken.type === OPEN_CURLY) {

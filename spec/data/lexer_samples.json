@@ -107,5 +107,41 @@
                 "value": "]"
             }
         ]
+    },
+    {
+        "title": "number",
+        "sample": "[5]",
+        "tokens": [
+            {
+                "type": "OPEN_BRACKET",
+                "value": "["
+            },
+            {
+                "type": "NUMBER",
+                "value": 5
+            },
+            {
+                "type": "CLOSE_BRACKET",
+                "value": "]"
+            }
+        ]
+    },
+    {
+        "title": "number with floating point",
+        "sample": "[5.245]",
+        "tokens": [
+            {
+                "type": "OPEN_BRACKET",
+                "value": "["
+            },
+            {
+                "type": "NUMBER",
+                "value": 5.245
+            },
+            {
+                "type": "CLOSE_BRACKET",
+                "value": "]"
+            }
+        ]
     }
 ]
