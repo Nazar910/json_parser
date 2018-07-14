@@ -11,7 +11,8 @@ const {
     COLON,
     COMMA,
     STRING,
-    NUMBER
+    NUMBER,
+    BOOLEAN
 } = Token.types;
 
 class Parser {
@@ -92,6 +93,18 @@ class Parser {
     }
 
     /**
+     * Checks if current token type is BOOLEAN
+     * and retuns its value
+     *
+     * @returns {Boolean}
+     */
+    boolean() {
+        const bool = this.currentToken.value;
+        this.eat(BOOLEAN);
+        return bool;
+    }
+
+    /**
      * Handler for json object value
      *
      * @returns {String|Object}
@@ -103,6 +116,10 @@ class Parser {
 
         if (this.currentToken.type === NUMBER) {
             return this.number();
+        }
+
+        if (this.currentToken.type === BOOLEAN) {
+            return this.boolean();
         }
 
         if (this.currentToken.type === OPEN_CURLY) {
@@ -126,12 +143,11 @@ class Parser {
         const array = [];
         this.eat(OPEN_BRACKET);
 
-        if (this.currentToken.type === STRING) {
-            array.push(this.string());
-            while (this.currentToken.type === COMMA) {
-                this.eat(COMMA);
-                array.push(this.string());
-            }
+        array.push(this.value());
+
+        while (this.currentToken.type === COMMA) {
+            this.eat(COMMA);
+            array.push(this.value());
         }
 
         this.eat(CLOSE_BRACKET);

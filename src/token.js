@@ -1,14 +1,17 @@
 const assert = require('assert');
 
-const EOF = 'EOF';
-const OPEN_CURLY = 'OPEN_CURLY';
-const CLOSE_CURLY = 'CLOSE_CURLY';
-const OPEN_BRACKET = 'OPEN_BRACKET';
-const CLOSE_BRACKET = 'CLOSE_BRACKET';
-const COLON = 'COLON';
-const COMMA = 'COMMA';
-const STRING = 'STRING';
-const NUMBER = 'NUMBER';
+const TYPES = {
+    EOF: 'EOF',
+    OPEN_CURLY: 'OPEN_CURLY',
+    CLOSE_CURLY: 'CLOSE_CURLY',
+    OPEN_BRACKET: 'OPEN_BRACKET',
+    CLOSE_BRACKET: 'CLOSE_BRACKET',
+    COLON: 'COLON',
+    COMMA: 'COMMA',
+    STRING: 'STRING',
+    NUMBER: 'NUMBER',
+    BOOLEAN: 'BOOLEAN'
+}
 
 class Token {
     constructor(type, value) {
@@ -20,17 +23,7 @@ class Token {
     }
 
     static get types() {
-        return {
-            EOF,
-            OPEN_CURLY,
-            CLOSE_CURLY,
-            OPEN_BRACKET,
-            CLOSE_BRACKET,
-            COLON,
-            COMMA,
-            STRING,
-            NUMBER
-        }
+        return TYPES;
     }
 
     static create(...args) {

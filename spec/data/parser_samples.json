@@ -57,5 +57,10 @@
         "expected_json": {
             "foo": 5.245
         }
+    },
+    {
+        "title": "json array with boolean elems",
+        "sample": "[true, false]",
+        "expected_json": [true, false]
     }
 ]
