@@ -83,11 +83,26 @@ class Lexer {
      */
     string() {
         let result = '';
-        while (this.currentChar && /[\w\"]/.test(this.currentChar)) {
+        while (/[\w\"]/.test(this.currentChar)) {
             result += this.currentChar;
             this.advance();
         }
         return result;
+    }
+
+    /**
+     * Read from text while has a valid number
+     * and return result
+     *
+     * @returns {Number}
+     **/
+    number() {
+        let result = '';
+        while (/[\d\.]/.test(this.currentChar)) {
+            result += this.currentChar;
+            this.advance();
+        }
+        return Number(result);
     }
 
     /**
@@ -132,7 +147,11 @@ class Lexer {
                 return Token.create(COMMA, ',');
             }
 
-            if (/[\w\"]/.test(this.currentChar)) {
+            if (/\d/.test(this.currentChar)) {
+                return Token.create(NUMBER, this.number());
+            }
+
+            if (/\"/.test(this.currentChar)) {
                 return Token.create(STRING, this.string());
             }
 

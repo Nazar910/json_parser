@@ -6,7 +6,7 @@ describe('Parser', () => {
     describe('constructor', () => {
         describe('lexer is specified', () => {
             it('should return parser object', () => {
-                const lexer = Lexer.create('some text');
+                const lexer = Lexer.create('{"foo":"bar"}');
                 const parser = Parser.create(lexer);
                 expect(parser).to.be.an.instanceOf(Parser)
             });
