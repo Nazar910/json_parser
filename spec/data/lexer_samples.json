@@ -28,11 +28,6 @@
     {
         "title": "JSON obj with nested objects",
         "sample": "[{\"foo\":\"bar\"}]",
-        "expected_json": {
-            "foo": {
-                "bar": "baz"
-            }
-        },
         "tokens": [
             {
                 "type": "OPEN_BRACKET",
@@ -61,6 +56,32 @@
             {
                 "type": "CLOSE_BRACKET",
                 "value": "]"
+            }
+        ]
+    },
+    {
+        "title": "json with string that contain spaces",
+        "sample": "{\"foo\":\"bar and baz\"}",
+        "tokens": [
+            {
+                "type": "OPEN_CURLY",
+                "value": "{"
+            },
+            {
+                "type": "STRING",
+                "value": "\"foo\""
+            },
+            {
+                "type": "COLON",
+                "value": ":"
+            },
+            {
+                "type": "STRING",
+                "value": "\"bar and baz\""
+            },
+            {
+                "type": "CLOSE_CURLY",
+                "value": "}"
             }
         ]
     },

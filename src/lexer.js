@@ -84,7 +84,7 @@ class Lexer {
      */
     string() {
         let result = '';
-        while (/[\w\"]/.test(this.currentChar)) {
+        while (/[\w\"\s\\]/.test(this.currentChar)) {
             result += this.currentChar;
             this.advance();
         }
