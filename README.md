@@ -26,8 +26,7 @@ npm test
 ```bash
 node src/runner.js -f /tmp/example.json
 ```
-
-example image placeholder
+![Alt screen](https://user-images.githubusercontent.com/19594637/43678850-3309cfa8-9823-11e8-8231-416f94cabd34.png)
 
 Also you can require it and use in your node.js code (I don't know for what reason but you can)
 ```js
