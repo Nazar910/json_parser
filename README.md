@@ -1,4 +1,4 @@
-# Json parser
+# Json parser [![Build Status](https://travis-ci.com/Nazar910/json_parser.svg?branch=master)](https://travis-ci.com/Nazar910/json_parser)
 *Descent recursive json parser (created for educational reasons, do not use it in production)*
 
 ## Getting started
